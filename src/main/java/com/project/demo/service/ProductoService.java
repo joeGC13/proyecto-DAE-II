@@ -19,7 +19,16 @@ public class ProductoService implements GenericService<Producto, String>{
                             2, "12312311", "Chizito", "Pickeos", 1.2, true
                     ),
                     new Producto(
-                            2, "12312312", "Chizito", "Pickeos", 1.2, true
+                            3, "12312312", "Chizito", "Pickeos", 1.2, true
+                    ),
+                    new Producto(
+                            4, "22132315", "Leche Gloria", "Lacteos", 2.4, false
+                    ),
+                    new Producto(
+                            5, "12312311", "Chizito", "Pickeos", 1.2, true
+                    ),
+                    new Producto(
+                            6, "12312312", "Chizito", "Pickeos", 1.2, false
                     )
             )
     );
