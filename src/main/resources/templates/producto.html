@@ -15,9 +15,9 @@
 
 
 <div class="container">
-    <h3>Listado de Alumnos</h3>
+    <h3>PRODUCTOS</h3>
     <div class="col-md-12">
-        <a th:href="@{/productos/add}" class="btn btn-primary">Agregar alumnos</a>
+        <a th:href="@{/productos/add}" class="btn btn-primary">Agregar producto</a>
     </div>
 
     <div th:switch="productos" >
@@ -37,7 +37,12 @@
                     <th scope="row" th:text="${producto.id}" ></th>
                     <td th:text="${producto.nombre}"></td>
                     <td th:text="${producto.codigo}"></td>
-                    <td th:text="${producto.estado}"></td>
+                    <div th:if="${producto.estado}">
+                    <td th:text="Activo"></td>
+                    </div>
+                    <div th:unless="${producto.estado == true}">
+                        <td th:text="Inactivo"></td>
+                    </div>
                     <td th:text="${producto.precio}"></td>
 
                     <td class="text-right">

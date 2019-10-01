@@ -22,7 +22,7 @@ public class ClienteService implements GenericService<Cliente, String> {
 
     @Override
     public void update(Cliente cliente) {
-        Cliente currentCliente = findById(cliente.getId());
+        Cliente currentCliente = findById(String.valueOf(cliente.getId()));
         int index = clientes.indexOf(cliente);
         clientes.set(index, currentCliente);
     }
