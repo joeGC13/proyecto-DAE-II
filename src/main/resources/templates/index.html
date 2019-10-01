@@ -9,11 +9,65 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Bienvenido</title>
+    <title>Listado de Alumnos</title>
 </head>
 <body>
 
-    <h2>Bienvenidos a la Bodega</h2>
+
+<div class="container">
+    <h3>Listado de Alumnos</h3>
+    <div class="col-md-12">
+        <a th:href="@{/students/add}" class="btn btn-primary">Agregar alumnos</a>
+    </div>
+
+    <div th:switch="students" >
+        <div th:case="*">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">documentNumber</th>
+                    <th scope="col">name</th>
+                    <th scope="col">lastNameFather</th>
+                    <th scope="col">lastNameMother</th>
+                    <th scope="col">birthDate</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="student : ${students}">
+                    <th scope="row" th:text="${student.documentNumber}" ></th>
+                    <td th:text="${student.name}"></td>
+                    <td th:text="${student.lastNameFather}"></td>
+                    <td th:text="${student.lastNameMother}"></td>
+                    <td th:text="${student.birthDate}"></td>
+
+                    <td class="text-right">
+                        <div class="btn-group">
+
+                            <a th:href="@{/students/edit/{documentNumber}
+                                    (documentNumber=${student.documentNumber})}"
+                               class="btn btn-primary btn-sm">Editar</a>
+
+                            <a th:href="@{/students/delete/{documentNumber}
+                                (documentNumber=${student.documentNumber})}"
+                               class="btn btn-danger btn-sm">Eliminar</a>
+
+                        </div>
+                    </td>
+
+                </tr>
+                </tbody>
+
+            </table>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
 
 </body>
 </html>
